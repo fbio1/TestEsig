@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui = "http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+	
+<h:head></h:head>
+     <ui:composition template="/template/template.xhtml">
+		<ui:define name="container">	
+			
+			<div style="margin: auto; width: 50%; height: 50%">	
+				<h4 style="text-align: center;">JSF + PRIMEFACES + HIBERNATE</h4>
+					<h:form id="form-cad">
+						<p:messages autoUpdate="true"/>
+						<p:fieldset legend="Cadastro de Contatos">
+								Nome: <p:inputText value="#{contatoController.contato.nome}" />	
+								Telefone: <p:inputMask mask="(99)99999-9999" value="#{contatoController.contato.telefone}" /> <br/><br/>
+								<p:commandButton value="Salvar" action="#{contatoController.salvar()}" update="form-cad" />														
+						</p:fieldset>
+						
+						<br/><br/><br/>		
+						
+						<p:fieldset legend="Meus contatos">
+							<p:dataTable value="#{contatoController.lista}" var="contato"
+								emptyMessage="Nenhum registro encontrado" paginator="true" rows="7" >									
+								
+								<p:column headerText="ID">
+									<h:outputText value="#{contato.id}" />
+								</p:column>		
+								
+								<p:column headerText="Nome">
+									<h:outputText value="#{contato.nome}" />
+								</p:column>								
+								
+								<p:column headerText="Telefone">
+									<h:outputText value="#{contato.telefone}" />
+								</p:column>
+								
+								<p:column headerText="Ações">
+									<p:commandButton value="Editar" action="#{contatoController.editar(contato)}" update="form-cad"/>
+									<p:commandButton value="Excluir" action="#{contatoController.remover(contato)}" update="form-cad"/> <br/>
+								</p:column>																
+							</p:dataTable>
+        				</p:fieldset>
+					</h:form>					
+					 <!-- colocar no meio -->
+					<div style="margin-top: 10px; text-align: center;">
+						<b:button look="primary" style="text-align: center; pos" href="/Esig/jsf/jsf.xhtml" value="Acessar JSF + PRIMEFACES »"/>		
+					</div>
+			</div>
+		</ui:define>         
+      </ui:composition>
+</html>

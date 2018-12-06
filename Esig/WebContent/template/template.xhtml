@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+<h:head>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>	
+	<!-- https://jqueryui.com/themeroller/ -->
+	<!-- https://repository.primefaces.org/org/primefaces/themes/ -->
+	<h:outputStylesheet type="text/css" rel="stylesheet" href="../META-INF/resources/css/theme.css"></h:outputStylesheet>	
+	<link rel="shortcut icon" href="../META-INF/resources/images/esig.ico"/>
+</h:head>
+
+<h:body>
+		<ui:insert name="header">
+			<ui:include src="header.xhtml"/>			
+		</ui:insert>
+		
+		<ui:insert name="container">		
+			<ui:include src="container.xhtml" />
+		</ui:insert>	
+		
+		<ui:insert name="foorter">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</h:body>
+</html>
